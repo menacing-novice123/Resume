@@ -1,0 +1,231 @@
+/* Interaction polish: intentionally subtle so the Figma layout stays intact. */
+a, button, .project-card, .interest-card, .skill-card, .tool-box, .contact-item {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.btn, .social, .project-card, .interest-card, .skill-card, .tool-box, .contact-item {
+  transition: transform 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
+}
+
+@media (hover:hover) and (pointer:fine) {
+  .btn:hover { transform: translateY(-2px); }
+  .social:hover { transform: translateY(-3px); }
+  .project-card:hover, .interest-card:hover, .skill-card:hover, .tool-box:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 18px rgba(0,0,0,.12);
+  }
+  .contact-item:hover { transform: translateX(3px); }
+}
+
+a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible,
+[tabindex="0"]:focus-visible {
+  outline: 3px solid #1688f8;
+  outline-offset: 3px;
+}
+
+.nav a[aria-current="page"], .footer-nav a[aria-current="page"],
+.mobile-nav-links a[aria-current="page"] {
+  text-decoration: underline;
+  text-underline-offset: 5px;
+  text-decoration-thickness: 2px;
+}
+
+.will-reveal {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 450ms ease, transform 450ms ease;
+  transition-delay: var(--reveal-delay, 0ms);
+}
+.will-reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+.form-status {
+  margin: 12px 0 0;
+  padding: 10px 12px;
+  border-left: 3px solid #ff3b3f;
+  border-radius: 4px;
+  background: #fff0f2;
+  color: #333;
+  font-size: 13px;
+  line-height: 1.45;
+}
+.form-status[hidden] { display:none; }
+.counter.is-near-limit { color:#9b5100; font-weight:700; }
+.counter.is-at-limit { color:#c62828; font-weight:700; }
+
+.skills-page .more-card {
+  cursor: pointer;
+  font: inherit;
+  color: #111;
+}
+.skills-page .skills-grid.is-expanded .skill-card:nth-child(n+6) {
+  display: block;
+}
+.skills-page .skills-grid.is-expanded .skill-card {
+  animation: card-in 220ms ease both;
+}
+@keyframes card-in {
+  from { opacity:0; transform:translateY(6px); }
+  to { opacity:1; transform:translateY(0); }
+}
+
+.zoomable-image { cursor: zoom-in; }
+.image-lightbox {
+  width: min(92vw, 1200px);
+  max-width: 92vw;
+  max-height: 92vh;
+  padding: 0;
+  border: 0;
+  border-radius: 12px;
+  background: transparent;
+  overflow: visible;
+}
+.image-lightbox::backdrop { background:rgba(0,0,0,.78); }
+.lightbox-panel {
+  position:relative;
+  padding:16px;
+  border-radius:12px;
+  background:#fff;
+  box-shadow:0 16px 50px rgba(0,0,0,.3);
+}
+.lightbox-image {
+  display:block;
+  max-width:100%;
+  max-height:78vh;
+  margin:0 auto;
+  object-fit:contain;
+}
+.lightbox-caption {
+  margin:10px 40px 0 0;
+  color:#555;
+  text-align:center;
+  font-size:13px;
+}
+.lightbox-close {
+  position:absolute;
+  top:6px;
+  right:7px;
+  z-index:1;
+  width:36px;
+  height:36px;
+  border:1px solid #ccc;
+  border-radius:50%;
+  background:#fff;
+  color:#111;
+  font-size:25px;
+  line-height:1;
+  cursor:pointer;
+}
+
+@media (max-width:390px) {
+  .image-lightbox { width:96vw; max-width:96vw; }
+  .lightbox-panel { padding:10px; }
+  .lightbox-image { max-height:76vh; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior:auto !important;
+    transition-duration:.01ms !important;
+    animation-duration:.01ms !important;
+    animation-iteration-count:1 !important;
+  }
+  .will-reveal, .will-reveal.is-visible {
+    opacity:1 !important;
+    transform:none !important;
+  }
+}
+
+
+/* Skills page: make both ellipsis controls functional at tablet/mobile widths. */
+.skills-page .more-card {
+  appearance: none;
+  -webkit-appearance: none;
+  font-family: inherit;
+  line-height: 1;
+  cursor: pointer;
+  color: #111;
+}
+.skills-page .more-card:hover {
+  background: #f5f5f5;
+}
+.skills-page .more-card:active {
+  transform: scale(.98);
+}
+
+/* iPad/tablet: show five skills + ellipsis initially; expand to all eight.
+   All six Tools I Use cards already fit in the tablet layout. */
+@media (min-width:391px) and (max-width:768px) {
+  .skills-page #skillsGrid:not(.is-expanded) > .skill-card:nth-child(n+6) {
+    display: none !important;
+  }
+  .skills-page #skillsGrid.is-expanded > .skill-card {
+    display: flex !important;
+  }
+  .skills-page #skillsGrid.is-expanded > .more-card {
+    grid-column: 1 / -1;
+    min-height: 48px;
+  }
+}
+
+/* Mobile: show three skills + ellipsis, and three tools + ellipsis initially.
+   Each toggle independently reveals every remaining item. */
+@media (max-width:390px) {
+  .skills-page #skillsGrid:not(.is-expanded) > .skill-card:nth-child(n+4) {
+    display: none !important;
+  }
+  .skills-page #skillsGrid.is-expanded > .skill-card {
+    display: flex !important;
+  }
+  .skills-page #skillsGrid.is-expanded > .more-card {
+    grid-column: 1 / -1;
+    min-height: 44px;
+  }
+
+  .skills-page #toolsGrid:not(.is-expanded) > .tool-box:nth-child(n+4) {
+    display: none !important;
+  }
+  .skills-page #toolsGrid.is-expanded > .tool-box {
+    display: flex !important;
+  }
+  .skills-page #toolsGrid > .tool-more {
+    display: grid !important;
+    width: 100%;
+    min-height: 105px;
+    padding: 10px;
+    place-items: center;
+    border: 1px solid #111;
+    border-radius: 8px;
+    background: #fff;
+    font-size: 22px;
+    box-shadow: none;
+  }
+  .skills-page #toolsGrid.is-expanded > .tool-more {
+    grid-column: 1 / -1;
+    min-height: 44px;
+  }
+}
+
+
+/* Review cleanup */
+.project-link-disabled {
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  opacity:.58;
+  cursor:not-allowed;
+  pointer-events:none;
+  box-shadow:none !important;
+  transform:none !important;
+  color:#555;
+  font-size:12px;
+}
+a[aria-disabled="true"] {
+  cursor:not-allowed;
+}
+.social[aria-disabled="true"] {
+  opacity:.45;
+  box-shadow:none;
+}

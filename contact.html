@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Marc Aguilar | Contact</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/interactions.css">
+</head>
+<body>
+<div class="site-shell">
+
+<header class="site-header">
+  <a class="brand" href="index.html">
+    <img class="brand-logo" src="assets/ma-logo.png" alt="MA logo">
+    <span class="brand-name">MARC AGUILAR</span>
+  </a>
+  <nav class="nav"><a href="index.html">Home</a><a href="about.html">About</a><a href="projects.html">Projects</a><a href="skills.html">Skills</a><a href="contact.html">Contact</a></nav>
+  <a class='talk-btn' href='contact.html'>Let's Talk →</a>
+  <a class="hamburger" href="mobile-nav.html" aria-label="Open mobile navigation">
+    <span></span><span></span><span></span>
+  </a>
+</header>
+<main class="page contact-page">
+  <section class="contact-hero section">
+    <div class="placeholder office contact-image"><img src="assets/contact-hero.png" alt="Office workspace"></div>
+    <div class="contact-copy">
+      <div class="kicker">Get in Touch</div>
+      <h1>Let’s <span class="red">Connect.</span></h1>
+      <p>I'm interested in opportunities that allow me to learn, collaborate, and build. Whether it is a project, collaboration, academic work, or a future internship opportunity, I'm open to connecting.</p>
+    </div>
+  </section>
+
+  <section class="contact-grid">
+    <div>
+      <div class="kicker">Send a Message</div>
+      <h2>Contact Form</h2>
+      <form class="form-card" id="contactForm">
+        <div class="form-group"><label for="name">Name:</label><input id="name" type="text" placeholder="Your Name" required></div>
+        <div class="form-group"><label for="email">Email:</label><input id="email" type="email" placeholder="your.email@example.com" required></div>
+        <div class="form-group"><label for="subject">Subject:</label><input id="subject" type="text" placeholder="How can I help?" required></div>
+        <div class="form-group">
+          <label for="message">Message:</label>
+          <textarea id="message" maxlength="500" placeholder="Write your message here..." required></textarea>
+          <div class="counter" id="counter" aria-live="polite">0/500</div>
+        </div>
+        <button class="btn red-btn small" type="submit">Send Message →</button>
+      </form>
+    </div>
+
+    <div>
+      <div class="kicker">Contact Information</div>
+      <h2>Let’s Talk</h2>
+      <div class="contact-list">
+        <a class="contact-item" href="mailto:marclester197@gmail.com"><div class="contact-icon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg></div><div><div class="contact-label">Email:</div><div class="contact-value"><u>marclester197@gmail.com</u></div></div></a>
+        <a class="contact-item" href="https://github.com/menacing-novice123" target="_blank"><div class="contact-icon"><svg class="icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .8a11.2 11.2 0 0 0-3.54 21.83c.56.1.77-.24.77-.54v-2.11c-3.14.68-3.8-1.32-3.8-1.32-.5-1.3-1.22-1.65-1.22-1.65-1-.68.08-.67.08-.67 1.1.08 1.69 1.14 1.69 1.14.98 1.68 2.56 1.2 3.19.92.1-.71.38-1.2.69-1.48-2.51-.28-5.15-1.26-5.15-5.6 0-1.24.44-2.24 1.15-3.03-.12-.28-.5-1.44.11-2.99 0 0 .94-.3 3.08 1.16a10.57 10.57 0 0 1 5.61 0c2.14-1.46 3.08-1.16 3.08-1.16.61 1.55.23 2.71.11 2.99.71.79 1.15 1.79 1.15 3.03 0 4.35-2.65 5.31-5.17 5.58.39.34.74 1.01.74 2.04v3.02c0 .3.2.65.78.54A11.2 11.2 0 0 0 12 .8z"/></svg></div><div><div class="contact-label">GitHub:</div><div class="contact-value">menacing-novice123</div></div></a>
+        <a class="contact-item" aria-disabled="true" tabindex="-1" title="Add your LinkedIn profile URL to activate this link"><div class="contact-icon"><svg class="icon" viewBox="0 0 24 24" fill="currentColor"><path d="M5.2 3.4A2.5 2.5 0 1 1 .2 3.4a2.5 2.5 0 0 1 5 0ZM.5 8.2h4.6V23H.5V8.2Zm7.5 0h4.4v2.02h.06c.62-1.17 2.11-2.4 4.34-2.4 4.64 0 5.5 3.05 5.5 7V23h-4.6v-7.1c0-1.69-.03-3.86-2.36-3.86-2.37 0-2.73 1.84-2.73 3.74V23H8V8.2Z"/></svg></div><div><div class="contact-label">LinkedIn:</div><div class="contact-value">Marc Lester</div></div></a>
+      </div>
+      <div class="open-box">
+        <h3><span class="availability-dot"></span>Currently Open to</h3>
+        <ul>
+          <li>Academic Projects</li><li>Programming Projects</li>
+          <li>Student Collaborations</li><li>Learning Opportunities</li>
+          <li>Web Development Projects</li><li>Future Internship Opportunities</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-brand">
+    <img class="brand-logo" src="assets/ma-logo.png" alt="MA logo">
+    <div>
+      <div class="brand-name">MARC AGUILAR</div>
+      <div class="footer-sub">Student Developer • Aspiring Software Developer</div>
+    </div>
+  </div>
+  <nav class="footer-nav">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="projects.html">Projects</a>
+    <a href="skills.html">Skills</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+  <div class="footer-copy">© 2026 Marc Aguilar. All Rights Reserved.</div>
+</footer>
+</div>
+<script src="js/main.js" defer></script>
+</body>
+</html>
