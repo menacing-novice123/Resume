@@ -1,4 +1,3 @@
-[Marc_Aguilar_Portfolio_README.md](https://github.com/user-attachments/files/33664405/Marc_Aguilar_Portfolio_README.md)
 # Marc Aguilar | Developer Portfolio
 
 ![Portfolio banner](assets/personal-portfolio-banner.png)
